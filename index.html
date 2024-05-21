@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --animation-pulsar-space: 0.5em;
+  --animation-pulsar-color: 0, 247, 255;
+  --animation-pulsar-inner-size: 8em;
+	
+  --animation-pulsar-shade-width: 2em;
+}
+
+@keyframes animation-pulsar {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(var(--animation-pulsar-color), 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 var(--animation-pulsar-shade-width)
+      rgba(var(--animation-pulsar-color), 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(var(--animation-pulsar-color), 0);
+  }
+}
+
+
+.animation-pulsar {
+  display: flex;
+  align-items: center; /* horizontal */
+  justify-content: center; /* vertical */
+  flex-flow: column;
+  gap: var(--animation-pulsar-space);
+}
+
+.animation-pulsar::before {
+  content: "";
+  width: var(--animation-pulsar-inner-size);
+  height: var(--animation-pulsar-inner-size);
+  background: rgba(var(--animation-pulsar-color), 1);
+  border-radius: 100%;
+
+  /* Shorthand: name, duration, function, delay, iteration */
+  animation: animation-pulsar 2s linear 0s infinite;
+  /* Shorthand: property, delay, duration, function */
+  transition: transform 1s 0s ease-in-out;
+}
+
+
+
+:root {
+  --color-white: #fff;
+  --color-grey: #242424;
+  --font-size-base: 14px;
+  --brand-primary-color: rgb(0, 247, 255);
+}
+
+
+html {
+  height: 100%; /* For vh unit */
+}
+
+body {
+  margin: 0;
+  min-height: 100%; /* For vh unit */
+  background-color: black;
+  color: var(--color-grey);
+  overflow:hidden;
+  font-family: Arial, sans-serif;
+  font-size: var(--font-size-base);
+  line-height: 1.3;
+}
+
+
+
+.hero {
+  display: flex;
+  flex-flow: column;
+  align-items: center; /* horizontal */
+  justify-content: center; /* vertical */
+  width: 100%;
+  height: 100vh;
+
+  background-color: var(--color-grey);
+}
+
+.hero > div {
+  margin: 0 0.5em;
+}
+
+.hero-title {
+  color: var(--brand-primary-color);
+  font-family: Montserrat, sans-serif;
+  font-size: 3em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-align: center;
+}
+
+.hero-text {
+  color: var(--color-white);
+  font-family: Montserrat, sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%) scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100%) scale(0);
+    }
+}
+
+
+</style>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>iDriveRepair</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- <link href="No%20Name_files/styles.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link href="No%20Name_files/animation-pulsar.css" rel="stylesheet" type="text/css"> -->
+
+    <!-- Note: Add a Google Tag to start tracking visitor -->
+  </head>
+
+  <body>
+    <div class="hero">
+      <div class="hero-title animation-pulsar">
+	<!-- img src="logo.jpg" / -->
+        iDriveRepair
+      </div>
+      <div class="hero-text">
+        <p>new website coming soon</p>
+      </div>
+    </div>
+  
+<script>
+	  const numStars = 100; // Adjust this number as needed
+const container = document.createElement('div');
+container.classList.add('stars-container');
+
+for (let i = 0; i < numStars; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.top = `${Math.random() * 100}%`;
+    star.style.animationDelay = `${Math.random() * 0.1}s`; // Randomize animation delay
+    container.appendChild(star);
+}
+
+document.body.appendChild(container);
+
+	</script>
+</body></html>
