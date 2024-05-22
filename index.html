@@ -3,13 +3,14 @@
 <head>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"> 
+<link rel="stylesheet" href="styles.css">
 <style>
 
 :root {
   --animation-pulsar-space: 0.5em;
-  --animation-pulsar-color: 0, 247, 255;
-  --animation-pulsar-inner-size: 8em;
+  --animation-pulsar-color: 20, 106 , 201;
+  --animation-pulsar-inner-size: 250px;
 	
   --animation-pulsar-shade-width: 2em;
 }
@@ -45,7 +46,7 @@
   content: "";
   width: var(--animation-pulsar-inner-size);
   height: var(--animation-pulsar-inner-size);
-  background: rgba(var(--animation-pulsar-color), 1);
+  background: black;
   border-radius: 100%;
 
   /* Shorthand: name, duration, function, delay, iteration */
@@ -55,12 +56,11 @@
 }
 
 
-
 :root {
   --color-white: #fff;
   --color-grey: #242424;
-  --font-size-base: 14px;
-  --brand-primary-color: rgb(0, 247, 255);
+  --font-size-base: 15px;
+  --brand-primary-color: rgb(20, 106 , 201 );
 }
 
 
@@ -145,10 +145,38 @@ body {
         transform: translateY(0) scale(1);
     }
     100% {
-        opacity: 0;
+        opacity: 0         ;
         transform: translateY(100%) scale(0);
     }
+	
+
 }
+
+.unselectable {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera, and Firefox */
+}
+
+
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-49%, -72%);
+    width: 300px;
+    height: auto;
+    z-index: 2;
+}
+
+.name{
+  margin-top: 30px;
+  width: 50%;
+}
+
 
 
 </style>
@@ -163,19 +191,25 @@ body {
     <!-- Note: Add a Google Tag to start tracking visitor -->
   </head>
 
-  <body>
+  <body class="unselectable">
+    <img src="favicon.png" alt="logo" class="logo">
     <div class="hero">
       <div class="hero-title animation-pulsar">
-	<!-- img src="logo.jpg" / -->
-        iDriveRepair
+        
       </div>
       <div class="hero-text">
+	  <img src="name-white.png" alt="logo" class="name">
         <p>new website coming soon</p>
-      </div>
+      </div> 	  
+	   
+	   <div class="container">
+       <div class="pulsar"></div>
+      
+	  </div>
     </div>
-  
+	
 <script>
-	  const numStars = 100; // Adjust this number as needed
+	  const numStars = 200; // Adjust this number as needed
 const container = document.createElement('div');
 container.classList.add('stars-container');
 
@@ -184,7 +218,8 @@ for (let i = 0; i < numStars; i++) {
     star.classList.add('star');
     star.style.left = `${Math.random() * 100}%`;
     star.style.top = `${Math.random() * 100}%`;
-    star.style.animationDelay = `${Math.random() * 0.1}s`; // Randomize animation delay
+
+    star.style.animationDelay = `${Math.random() * 1.4}s`; // Randomize animation delay
     container.appendChild(star);
 }
 
